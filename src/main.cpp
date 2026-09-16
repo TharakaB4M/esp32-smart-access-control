@@ -2,13 +2,11 @@
 #include <WiFi.h>
 #include <WebServer.h>
 #include <ESPmDNS.h>
-#include "secrets.h"
 
-// ---- Wi-Fi credentials loaded from the local .env file at build time ----
-const char* ssid = WIFI_SSID;
-const char* password = WIFI_PASSWORD;
-const char* fallbackApName = WIFI_AP_NAME;
-const char* fallbackApPassword = WIFI_AP_PASSWORD;
+// ---- Wi-Fi credentials ----
+const char* ssid     = "Data Poddak Thiye 💀";
+const char* password = "pahan20022";
+const char* fallbackApName = "ESP32-Access-Control";
 
 // ---- LED pins ----
 const int GREEN_LED  = 25;
@@ -438,7 +436,7 @@ void setup() {
     Serial.println("Wi-Fi connection failed. Starting fallback access point.");
     WiFi.disconnect(true);
     WiFi.mode(WIFI_AP);
-    WiFi.softAP(fallbackApName, fallbackApPassword);
+    WiFi.softAP(fallbackApName);
     Serial.print("Fallback access point IP address: ");
     Serial.println(WiFi.softAPIP());
   }
